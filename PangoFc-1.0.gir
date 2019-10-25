@@ -390,27 +390,6 @@ Since 1.44, it does nothing.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="lock_face"
-              c:identifier="pango_fc_font_lock_face"
-              version="1.4"
-              introspectable="0"
-              deprecated="1"
-              deprecated-version="1.44">
-        <doc xml:space="preserve">Gets the FreeType &lt;type&gt;FT_Face&lt;/type&gt; associated with a font,
-This face will be kept around until you call
-pango_fc_font_unlock_face().</doc>
-        <doc-deprecated xml:space="preserve">Use pango_font_get_hb_font() instead</doc-deprecated>
-        <return-value>
-          <doc xml:space="preserve">the FreeType &lt;type&gt;FT_Face&lt;/type&gt; associated with @font.</doc>
-          <type c:type="FT_Face"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="font" transfer-ownership="none">
-            <doc xml:space="preserve">a #PangoFcFont.</doc>
-            <type name="Font" c:type="PangoFcFont*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
       <method name="unlock_face"
               c:identifier="pango_fc_font_unlock_face"
               version="1.4"
@@ -608,28 +587,13 @@ a font map using pango_fc_font_map_add_decoder_find_func().</doc>
         <return-value nullable="1">
           <doc xml:space="preserve">the #FcConfig object attached to @fcfontmap, which
          might be %NULL.</doc>
-          <type c:type="FcConfig*"/>
+          <type name="fontconfig.FcConfig" c:type="FcConfig*"/>
         </return-value>
         <parameters>
           <instance-parameter name="fcfontmap" transfer-ownership="none">
             <doc xml:space="preserve">a #PangoFcFontMap</doc>
             <type name="FontMap" c:type="PangoFcFontMap*"/>
           </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_hb_face"
-              c:identifier="pango_fc_font_map_get_hb_face"
-              introspectable="0">
-        <return-value>
-          <type c:type="hb_face_t*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="fcfontmap" transfer-ownership="none">
-            <type name="FontMap" c:type="PangoFcFontMap*"/>
-          </instance-parameter>
-          <parameter name="fcfont" transfer-ownership="none">
-            <type name="Font" c:type="PangoFcFont*"/>
-          </parameter>
         </parameters>
       </method>
       <method name="set_config"
@@ -663,7 +627,7 @@ does NOT need to retain a reference.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve">a #FcConfig, or %NULL</doc>
-            <type c:type="FcConfig*"/>
+            <type name="fontconfig.FcConfig" c:type="FcConfig*"/>
           </parameter>
         </parameters>
       </method>
